@@ -106,9 +106,12 @@ export default () => {
 
                 const mesh = new THREE.Mesh(geometry, material);
 
-                mesh.position.x = Math.sin(i / 100 * Math.PI * 10) * (i * 1.5);
+                // 10 * Math.PIは円を何周させるかを表す。（2 * Math.PI = 一周分）
+                // / 100 をすることで上記で定義した周を100等分する
+                // (i * 1.5)は園の半径の長さを表す
+                mesh.position.x = Math.sin(i * (10 * Math.PI) / 100) * (i * 1.5);
                 mesh.position.y = i * 2.5;
-                mesh.position.z = Math.cos(i / 100 * Math.PI * 10) * (i * 1.5);
+                mesh.position.z = Math.cos(i * (10 * Math.PI) / 100) * (i * 1.5);
 
                 group.add(mesh);
             }
